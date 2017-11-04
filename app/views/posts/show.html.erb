@@ -1,0 +1,11 @@
+<h1><%= @post.title%></h1>
+<p><%= @post.body%><p>
+
+<%= form_for :postcomment, url:posts_path do |f| %>
+
+
+<p><%= f.label "What do you think about it?"%></p>
+<%= f.text_area :text, cols: 10, rows: 3 %><br />
+
+<p><ul><li><%= f.submit "Reply", class: "btn btn-primary"%></li></ul></p>
+<% end %>
