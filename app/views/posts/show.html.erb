@@ -1,8 +1,26 @@
+<style>
+div1 {
+    border: 2px solid #a1a1a1;
+    padding: 10px 40px; 
+    background: #dddddd;
+    width: 300px;
+    border-radius: 25px;
+}
+</style>
+
 <h1><%= @post.title%></h1>
-<p><%= @post.body%><p>
+<div1><%= @post.body%></div1>
+<hr>
+<% @comments.each do |comment| %> 
+<p>comment by user <%= comment.user.nickname %> :</p>
+<%= comment.text %>
+<hr>
+<% end %>
 
-<%= form_for :postcomment, url:posts_path do |f| %>
-
+<%= form_for :postcomment, url:post_postcomments_path(post_id: @post.id) do |f| %>
+<% if flash[:notice] %>
+	<div class="notice"><%= flash[:notice] %></div>
+<%end%>
 
 <p><%= f.label "What do you think about it?"%></p>
 <%= f.text_area :text, cols: 10, rows: 3 %><br />

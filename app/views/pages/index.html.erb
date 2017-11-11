@@ -1,13 +1,25 @@
 <%= link_to "Create new post" , new_post_path , class: "btn btn-info"%>
+<style>
+div1 {
+    border: 2px solid #a1a1a1;
+    padding: 10px 40px; 
+    background: #dddddd;
+    width: 300px;
+    border-radius: 25px;
+}
+</style>
 <hr>
 <div>
 <% @posts.each do |post| %>
   <h1><%= link_to post.title, post_path(post.id) %></h1>
-  <p>Author: <%= post.user.nickname %> | 
-     Created at: <%= post.created_at %>
+  <div1><%= post.body %></div1> 
+  
+  <p>
+  <%= image_tag post.user.avatar.url(:thumb), width: 30, heigth: 30 %>
+  Author: <%= post.user.nickname %> | 
+  Created at: <%= post.created_at %>
   </p>
 
-  <p><%= post.body %></p> 
   <% if current_user != nil and current_user.id == post.user_id %>
     <p><%= link_to "Edit", edit_post_path(post.id)%> |  
      <%= link_to "Delete", post_path(post.id), data: {confirm: 'Are you sure?'}, method: :delete %> </p>
