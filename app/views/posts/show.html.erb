@@ -9,7 +9,7 @@ div1 {
 </style>
 
 <h1><%= @post.title%></h1>
-<div1><%= @post.body%></div1>
+<div1><%= sanitize @post.body%></div1>
 <hr>
 <% @comments.each do |comment| %> 
 <p>comment by user <%= comment.user.nickname %> :</p>

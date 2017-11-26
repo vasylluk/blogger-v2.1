@@ -1,18 +1,10 @@
 <%= link_to "Create new post" , new_post_path , class: "btn btn-info"%>
-<style>
-div1 {
-    border: 2px solid #a1a1a1;
-    padding: 10px 40px; 
-    background: #dddddd;
-    width: 300px;
-    border-radius: 25px;
-}
-</style>
+<%= link_to "Show Gallery" , photos_path , class: "btn btn-info"%>
 <hr>
 <div>
 <% @posts.each do |post| %>
-  <h1><%= link_to post.title, post_path(post.id) %></h1>
-  <div1><%= post.body %></div1> 
+  <h1><%= link_to post.title, post_path(post.id) %></h1> 
+  <div><%= sanitize post.body %></div> 
   
   <p>
   <%= image_tag post.user.avatar.url(:thumb), width: 30, heigth: 30 %>

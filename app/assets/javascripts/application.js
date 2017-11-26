@@ -11,5 +11,7 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require tinymce
 //= require turbolinks
+//= require rails.validations
 //= require_tree .
