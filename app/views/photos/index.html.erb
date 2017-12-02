@@ -4,7 +4,7 @@
 	<p>Nukyc</p>
 <% else %>
 	<% @photos.each do |photo|%>
-		<%= image.tag(photo.photo_url) %>
+		<%= image_tag(photo.photo_url) %>
 		<%= photo.name%>
 	<% end %>
 <% end %>
